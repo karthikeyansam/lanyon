@@ -20,17 +20,6 @@ W3schools.com has a nice short description of what XML represents ([W3schools](h
 * XML is designed to be self-descriptive
 * XML is a W3C Recommendation
 
-# Designing an XML structure
-* XML Header (Document Type Definition – DTD)
-
-Designing an XML structure is pretty straightforward. Each XML document begins with a header that defines the XML declaration:
-
-{% highlight xml %}
-<?xml version=”1.0″ encoding=”UTF-8″ ?>
-{% endhighlight %}
-
-Code 1: Sample of header declaration
-
 #  Common XML vulnerabilities 
  > (sample of vulnerable [code](https://gist.github.com/hakre/2416846))
 
