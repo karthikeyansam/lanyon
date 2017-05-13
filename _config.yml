@@ -9,11 +9,11 @@ permalink:        pretty
 title:            Lanyon
 tagline:          'A Jekyll theme'
 description:      'A reserved <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://lanyon.getpoole.com
+url:              http://karthikeyansam.github.io/lanyon/
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Karthikeyan Sampath'
+  url:            https://twitter.com/karthikeyansam
 
 paginate:         5
 
@@ -21,4 +21,4 @@ paginate:         5
 version:          1.0.0
 
 github:
-  repo:           https://github.com/poole/lanyon
+  repo:           https://github.com/karthikeyansam/lanyon
