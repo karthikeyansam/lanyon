@@ -79,3 +79,52 @@ Another Entity Expansion XML bomb is the quadratic blowup vulnerability discover
 ]>
 <kaboom>&a;&a;&a;&a;&a;&a;.....</kaboom>
 {% endhighlight %}
+
+##  DTD retrieval
+
+Also with entity declaration, you can have an URL link for replacement (for definition of replacement see previous vulnerability). When using the System identifiers you can download the content from external location and embed it in you XML file.
+
+{% highlight xml %}
+
+<!DOCTYPE external [
+<!ENTITY ee SYSTEM "http://www.python.org/some.xml">
+]>
+</span></p><p><span style="font-size:14pt"><root>&ee;</root>
+</span></p><p><span style="font-size:14pt">
+
+{% endhighlight %}
+
+
+
+The same vulnerability could be used for local file also:
+
+{% highlight xml %}
+<!DOCTYPE external [
+<!ENTITY ee SYSTEM "file:///PATH/TO/simple.xml">
+>
+<root>&ee;</root>
+
+{% endhighlight %}
+
+According to an article from Python’s blog about XML vulnerabilities, here are the possible “bad things” that might happen because of this vulnerability (http://blog.python.org/2013/02/announcing-defusedxml-fixes-for-xml.html):
+
+* An attacker can circumvent firewalls and gain access to restricted resources as all the requests are made from an internal and trustworthy IP address, not from the outside.
+*    An attacker can abuse a service to attack, spy on or DoS your servers but also third party services. The attack is disguised with the IP address of the server and the attacker is able to utilize the high bandwidth of a big machine.
+*   An attacker can exhaust additional resources on the machine, e.g. with requests to a service that doesn’t respond or responds with very large files.
+*  An attacker may gain knowledge, when, how often and from which IP address a XML document is accessed.
+*   An attacker could send mail from inside your network if the URL handler supports smtp:// URIs.
+
+
+## References
+
+1. http://docs.python.org/2/library/xml.html#xml-vulnerabilities
+2.  http://msdn.microsoft.com/en-us/magazine/ee335713.aspx
+3. http://en.wikipedia.org/wiki/Billion_laughs
+4. http://www.xponentsoftware.com/Articles/XML_vulnerabilities.aspx
+5. http://clawslab.nds.rub.de/wiki/index.php/XML_Generic_Entity_Expansion
+6. http://cytinus.wordpress.com/2011/07/26/37/
+7. http://stackoverflow.com/questions/10212752/how-can-i-use-phps-various-xml-libraries-to-get-dom-like-functionality-and-avoi
+8. http://clawslab.nds.rub.de/wiki/index.php/XML_Generic_Entity_Expansion
+9. http://www.w3schools.com/dtd/
+10. http://www.w3schools.com/xml/default.asp
+11. http://blog.python.org/2013/02/announcing-defusedxml-fixes-for-xml.html
