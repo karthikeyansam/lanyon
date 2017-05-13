@@ -64,6 +64,18 @@ This vulnerability is a DoS (Denial Of Service) aimed for the parsers of the XML
 <!ENTITY lol9 "&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;">
 ]>
 <lolz>&lol9;</lolz>
-{endhighlight}
+{% endhighlight %}
 
 As you can see, we have 10 “lols”. So what is happening here? At the end, we have instance of “lol9”. When the &lol9; is parsed the entity lol9 will be called which has 10 “lol8” instances. The lol8 has 10 “lol7” instances and so on. At the end you may assume that there will be a lot of “lol” (100,000,000 instances = billion). The billion lol’s might cause DoS (Denial of Service). That’s why it is called the Billion Laughs Vulnerability. For more information about the vulnerability, check the link (http://cytinus.wordpress.com/2011/07/26/37/).
+
+##Quadratic blowup
+
+Another Entity Expansion XML bomb is the quadratic blowup vulnerability discovered by Amin Klein of Trusteer. The “kaboom” entity has 50,000 “a” represented as “&a;” When parsed, the size of it changes, from 200KB to 2.5gb, causing DoS. Still the billion laughs create much bigger size when parsing compared to quadratic blowup.
+
+{% highlight xml %}
+<?xml version="1.0"?>
+<!DOCTYPE kaboom [
+  <!ENTITY a "aaaaaaaaaaaaaa.....
+]>
+<kaboom>&a;&a;&a;&a;&a;&a;.....</kaboom>
+{% endhighlight %}
