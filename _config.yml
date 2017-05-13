@@ -2,6 +2,8 @@
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
+markdown:            kramdown
+highlighter:         rouge
 # Setup
 title:               Lanyon
 tagline:             'A Jekyll theme'
