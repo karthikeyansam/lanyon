@@ -14,17 +14,17 @@ In the ``/etc/supervisor/supervisor.conf`` please do the below changes make supe
 ## Part 1
 
 ```
-	[unix_http_server]
-	file=/var/tmp/supervisord.sock # note folder name change
-	chmod=0770 # This will provide read and write access to the socket
-	chown=<user>:<group> # change the group will provide access to the socket 
+[unix_http_server]
+file=/var/tmp/supervisord.sock # note folder name change
+chmod=0770 # This will provide read and write access to the socket
+chown=<user>:<group> # change the group will provide access to the socket 
 ```
 
 ## Part 2
 
 ```
-	[supervisorctl]
-	serverurl=/var/tmp/supervisord.sock
+[supervisorctl]
+serverurl=/var/tmp/supervisord.sock
 ```
 
 Note: still works if ``chmod`` and ``chown`` were changed
@@ -34,10 +34,10 @@ Note: still works if ``chmod`` and ``chown`` were changed
 Need to add a below section in ``/etc/supervisor/supervisor.conf`` and need to restart the service
 
 ```
-	[inet_http_server]
-	port = 127.0.0.1:9001
-	username = user
-	password = 123
+[inet_http_server]
+port = 127.0.0.1:9001
+username = user
+password = 123
 ```
 
 Then Browsing the link http://127.0.0.1:9001/ with username ``user`` and password ``123`` as mentioned above will have access to web portal
